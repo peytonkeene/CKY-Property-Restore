@@ -12,7 +12,7 @@ const headerHTML = `
 <header class="site-header">
   <div class="container nav-wrap">
     <a href="index.html" class="brand" aria-label="CKY Property Restore LLC home">
-      <img src="assets/logo.svg" alt="CKY Property Restore logo" class="brand-logo" />
+      <img src="assets/logo.png" alt="CKY Property Restore logo" class="brand-logo" />
     </a>
     <nav class="nav-links" aria-label="Main navigation">
       ${pages.map(([href, label]) => `<a href="${href}" class="${current === href ? 'active' : ''}">${label}</a>`).join('')}
@@ -26,7 +26,6 @@ const footerHTML = `
     <strong>CKY Property Restore LLC</strong>
     <span>Central Kentucky • Licensed & Insured • Free Estimates • No Hidden Fees</span>
     <span>Phone: <a href="tel:+16063021790">(606) 302-1790</a></span>
-    <span>Keywords: junk removal Central Kentucky • demolition services Central Kentucky • property cleanup Central Kentucky • shrub removal Central Kentucky • stump grinding Central Kentucky • junk hauling near me • property restoration Kentucky</span>
   </div>
 </footer>`;
 
