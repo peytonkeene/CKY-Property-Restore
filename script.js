@@ -11,7 +11,9 @@ const current = window.location.pathname.split('/').pop() || 'index.html';
 const headerHTML = `
 <header class="site-header">
   <div class="container nav-wrap">
-    <a href="index.html" class="brand">CKY Property Restore LLC</a>
+    <a href="index.html" class="brand" aria-label="CKY Property Restore LLC home">
+      <img src="assets/logo.svg" alt="CKY Property Restore logo" class="brand-logo" />
+    </a>
     <nav class="nav-links" aria-label="Main navigation">
       ${pages.map(([href, label]) => `<a href="${href}" class="${current === href ? 'active' : ''}">${label}</a>`).join('')}
     </nav>

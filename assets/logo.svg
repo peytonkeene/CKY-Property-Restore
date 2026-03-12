@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-labelledby="logoTitle logoDesc">
+  <title id="logoTitle">CKY Property Restore logo</title>
+  <desc id="logoDesc">Yellow circular logo with stars and text CKY Property Restore.</desc>
+  <rect width="400" height="400" fill="#f4d600"/>
+  <circle cx="200" cy="200" r="165" fill="none" stroke="#2a2a2a" stroke-width="10"/>
+  <circle cx="200" cy="200" r="118" fill="none" stroke="#2a2a2a" stroke-width="6"/>
+
+  <g fill="#2a2a2a">
+    <circle cx="200" cy="52" r="8"/>
+    <circle cx="251" cy="62" r="8"/>
+    <circle cx="294" cy="90" r="8"/>
+    <circle cx="323" cy="132" r="8"/>
+    <circle cx="340" cy="182" r="8"/>
+    <circle cx="339" cy="236" r="8"/>
+    <circle cx="318" cy="285" r="8"/>
+    <circle cx="282" cy="325" r="8"/>
+    <circle cx="235" cy="346" r="8"/>
+    <circle cx="182" cy="349" r="8"/>
+    <circle cx="131" cy="336" r="8"/>
+    <circle cx="89" cy="306" r="8"/>
+    <circle cx="62" cy="262" r="8"/>
+    <circle cx="53" cy="211" r="8"/>
+    <circle cx="63" cy="160" r="8"/>
+    <circle cx="92" cy="117" r="8"/>
+    <circle cx="136" cy="87" r="8"/>
+  </g>
+
+  <path id="topArc" d="M95 198a105 105 0 0 1 210 0" fill="none"/>
+  <text font-family="Arial, sans-serif" font-size="26" font-weight="700" letter-spacing="4" fill="#1d1d1d">
+    <textPath href="#topArc" startOffset="50%" text-anchor="middle">PROPERTY</textPath>
+  </text>
+
+  <path id="bottomArc" d="M305 202a105 105 0 0 1-210 0" fill="none"/>
+  <text font-family="Arial, sans-serif" font-size="26" font-weight="700" letter-spacing="4" fill="#1d1d1d">
+    <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">RESTORE</textPath>
+  </text>
+
+  <text x="200" y="225" text-anchor="middle" font-family="Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif" font-size="95" font-weight="700" fill="#111">CKY</text>
+</svg>

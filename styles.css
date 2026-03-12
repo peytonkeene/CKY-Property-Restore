@@ -29,7 +29,8 @@ a { color: inherit; }
   z-index: 999;
 }
 .nav-wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .8rem 0; }
-.brand { color: var(--yellow); text-decoration: none; font-weight: 800; font-size: 1.1rem; }
+.brand { display: inline-flex; align-items: center; text-decoration: none; }
+.brand-logo { width: 64px; height: 64px; border-radius: 50%; border: 2px solid var(--yellow); }
 .nav-links { display: flex; gap: 1rem; flex-wrap: wrap; }
 .nav-links a { color: var(--white); text-decoration: none; font-weight: 600; padding: .35rem .55rem; border-radius: 6px; }
 .nav-links a.active, .nav-links a:hover { background: var(--yellow); color: var(--black); }
