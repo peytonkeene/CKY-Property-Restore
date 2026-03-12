@@ -4,92 +4,318 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Results | Before & After Gallery | CKY Property Restore LLC</title>
-  <meta name="description" content="Before and after gallery for junk removal, demolition, yard cleanup, shrub removal, and stump grinding projects in Central Kentucky." />
+  <meta name="description" content="See before and after project transformations from CKY Property Restore LLC in Central Kentucky." />
   <meta property="og:title" content="Results | CKY Property Restore LLC" />
-  <meta property="og:description" content="See transformation results from property cleanup and restoration projects in Central Kentucky." />
+  <meta property="og:description" content="From junk-filled properties to clean, usable spaces—see what CKY Property Restore LLC can do." />
   <meta property="og:type" content="website" />
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    .results-page {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .results-header {
+      text-align: center;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .results-header h1 {
+      margin-bottom: 0.6rem;
+    }
+
+    .results-divider {
+      width: min(100%, 460px);
+      height: 6px;
+      margin: 1.25rem auto 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--black) 0 35%, var(--yellow) 35% 100%);
+    }
+
+    .project-list {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .project-section {
+      border: 2px solid var(--black);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      box-shadow: 0 5px 0 var(--yellow);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .project-section.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-section h2 {
+      margin-bottom: 0.25rem;
+    }
+
+    .before-after-layout {
+      display: grid;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .transform-card {
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .transform-label {
+      display: inline-block;
+      width: fit-content;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
+    .transform-label.before {
+      background: var(--black);
+      color: var(--yellow);
+    }
+
+    .transform-label.after {
+      background: var(--yellow);
+      color: var(--black);
+    }
+
+    .image-card {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgb(0 0 0 / 0.14);
+      border: 1px solid #cfcfcf;
+      background: var(--white);
+    }
+
+    .image-card img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+
+    .image-card:hover img,
+    .image-card:focus-within img {
+      transform: scale(1.04);
+    }
+
+    .ba-divider {
+      display: none;
+      text-align: center;
+      font-weight: 800;
+      color: var(--black);
+      font-size: 1.45rem;
+      line-height: 1;
+      padding: 0.4rem 0;
+      user-select: none;
+    }
+
+    .results-cta {
+      margin-inline: calc(50% - 50vw);
+      background: var(--yellow);
+      color: var(--black);
+      border-top: 5px solid var(--black);
+      border-bottom: 5px solid var(--black);
+      padding: clamp(2rem, 5vw, 3.4rem) 1rem;
+      text-align: center;
+    }
+
+    .results-cta-wrap {
+      width: min(100% - 2rem, 760px);
+      margin: 0 auto;
+    }
+
+    .results-cta h2 {
+      font-size: clamp(1.65rem, 3.8vw, 2.35rem);
+      margin-bottom: 0.45rem;
+    }
+
+    .results-cta p {
+      margin-top: 0;
+      margin-bottom: 1.15rem;
+      font-weight: 600;
+    }
+
+    .results-cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+
+    .results-cta .btn {
+      min-width: 215px;
+      padding: 0.85rem 1.15rem;
+      transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .results-cta .btn:hover,
+    .results-cta .btn:focus-visible {
+      transform: translateY(-2px);
+    }
+
+    .results-cta .btn-secondary {
+      background: var(--black);
+      color: var(--yellow);
+      border-color: var(--black);
+    }
+
+    .results-cta .btn-secondary:hover,
+    .results-cta .btn-secondary:focus-visible {
+      background: #262626;
+      color: #ffe06b;
+    }
+
+    .results-cta .btn-outline {
+      background: transparent;
+      color: var(--black);
+      border: 2px solid var(--black);
+    }
+
+    .results-cta .btn-outline:hover,
+    .results-cta .btn-outline:focus-visible {
+      background: var(--black);
+      color: var(--yellow);
+    }
+
+    @media (min-width: 860px) {
+      .before-after-layout {
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      }
+
+      .ba-divider {
+        display: block;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .project-section {
+        padding: 1rem;
+      }
+
+      .results-cta .btn {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div id="site-header"></div>
-  <main id="main-content" class="container page-main">
-    <header class="page-header">
-      <p class="eyebrow">Before &amp; After Gallery</p>
-      <h1>Results That Speak for Themselves</h1>
-      <p>See the difference professional cleanup and restoration can make.</p>
+
+  <main id="main-content" class="container page-main results-page">
+    <header class="results-header">
+      <h1>See the Results of Our Work</h1>
+      <p>From junk-filled properties to clean, usable spaces. See how CKY Property Restore LLC helps Central Kentucky homeowners transform their property.</p>
+      <div class="results-divider" aria-hidden="true"></div>
     </header>
 
-    <section class="filters" aria-label="Filter gallery by category">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="Junk Removal">Junk Removal</button>
-      <button class="filter-btn" data-filter="Demolition">Demolition</button>
-      <button class="filter-btn" data-filter="Yard Cleanup">Yard Cleanup</button>
-      <button class="filter-btn" data-filter="Shrub Removal">Shrub Removal</button>
-      <button class="filter-btn" data-filter="Stump Grinding">Stump Grinding</button>
+    <section class="project-list" aria-label="Before and after project results">
+      <article class="project-section">
+        <h2>Property Junk Removal Cleanup</h2>
+        <p>Full junk removal and property cleanup to restore usable outdoor space.</p>
+        <div class="before-after-layout">
+          <figure class="transform-card">
+            <span class="transform-label before">Before</span>
+            <div class="image-card">
+              <img src="assets/placeholders/before-1.svg" alt="Before view of a property area with heavy junk buildup" />
+            </div>
+          </figure>
+          <div class="ba-divider" aria-hidden="true">→</div>
+          <figure class="transform-card">
+            <span class="transform-label after">After</span>
+            <div class="image-card">
+              <img src="assets/placeholders/after-1.svg" alt="After view showing a clean and usable outdoor property area" />
+            </div>
+          </figure>
+        </div>
+      </article>
+
+      <article class="project-section">
+        <h2>Yard Overgrowth Removal</h2>
+        <p>Brush, shrub, and debris removal to bring the property back under control.</p>
+        <div class="before-after-layout">
+          <figure class="transform-card">
+            <span class="transform-label before">Before</span>
+            <div class="image-card">
+              <img src="assets/placeholders/before-3.svg" alt="Before view of an overgrown yard with brush and debris" />
+            </div>
+          </figure>
+          <div class="ba-divider" aria-hidden="true">→</div>
+          <figure class="transform-card">
+            <span class="transform-label after">After</span>
+            <div class="image-card">
+              <img src="assets/placeholders/after-3.svg" alt="After view showing a cleared and controlled yard" />
+            </div>
+          </figure>
+        </div>
+      </article>
+
+      <article class="project-section">
+        <h2>Demolition &amp; Cleanup</h2>
+        <p>Removal of unwanted structures and complete debris cleanup.</p>
+        <div class="before-after-layout">
+          <figure class="transform-card">
+            <span class="transform-label before">Before</span>
+            <div class="image-card">
+              <img src="assets/placeholders/before-2.svg" alt="Before view of an unwanted structure and surrounding debris" />
+            </div>
+          </figure>
+          <div class="ba-divider" aria-hidden="true">→</div>
+          <figure class="transform-card">
+            <span class="transform-label after">After</span>
+            <div class="image-card">
+              <img src="assets/placeholders/after-2.svg" alt="After view of open space after demolition and debris removal" />
+            </div>
+          </figure>
+        </div>
+      </article>
     </section>
 
-    <section class="results-grid" id="results-grid">
-      <article class="result-card" data-category="Junk Removal">
-        <h2>Garage Junk Haul Out</h2>
-        <p>Removed years of boxed junk and broken furniture to reopen usable garage space.</p>
-        <div class="before-after-pair">
-          <button class="lightbox-trigger" data-src="assets/placeholders/before-1.svg" data-alt="Before: Garage junk removal placeholder">Before<img src="assets/placeholders/before-1.svg" alt="Before image slot placeholder for garage junk removal" /></button>
-          <button class="lightbox-trigger" data-src="assets/placeholders/after-1.svg" data-alt="After: Garage junk removal placeholder">After<img src="assets/placeholders/after-1.svg" alt="After image slot placeholder for garage junk removal" /></button>
+    <section class="results-cta" aria-label="Request quote call to action">
+      <div class="results-cta-wrap">
+        <h2>Ready to Transform Your Property?</h2>
+        <p>Call or message CKY Property Restore LLC today for a fast, free estimate.</p>
+        <div class="results-cta-actions">
+          <a class="btn btn-secondary" href="contact.html">Request Quote Now</a>
+          <a class="btn btn-outline" href="tel:+16063021790">Call (606) 302-1790</a>
         </div>
-      </article>
-
-      <article class="result-card" data-category="Demolition">
-        <h2>Old Shed Tear-Down</h2>
-        <p>Demolished unsafe shed and removed all debris, leaving a clean open yard.</p>
-        <div class="before-after-pair">
-          <button class="lightbox-trigger" data-src="assets/placeholders/before-2.svg" data-alt="Before: Shed demolition placeholder">Before<img src="assets/placeholders/before-2.svg" alt="Before image slot placeholder for shed demolition" /></button>
-          <button class="lightbox-trigger" data-src="assets/placeholders/after-2.svg" data-alt="After: Shed demolition placeholder">After<img src="assets/placeholders/after-2.svg" alt="After image slot placeholder for shed demolition" /></button>
-        </div>
-      </article>
-
-      <article class="result-card" data-category="Yard Cleanup">
-        <h2>Overgrown Backyard Cleanup</h2>
-        <p>Cleared brush and tall growth to restore access and improve curb appeal.</p>
-        <div class="before-after-pair">
-          <button class="lightbox-trigger" data-src="assets/placeholders/before-3.svg" data-alt="Before: Yard cleanup placeholder">Before<img src="assets/placeholders/before-3.svg" alt="Before image slot placeholder for yard cleanup" /></button>
-          <button class="lightbox-trigger" data-src="assets/placeholders/after-3.svg" data-alt="After: Yard cleanup placeholder">After<img src="assets/placeholders/after-3.svg" alt="After image slot placeholder for yard cleanup" /></button>
-        </div>
-      </article>
-
-      <article class="result-card" data-category="Shrub Removal">
-        <h2>Front Shrub Removal Reset</h2>
-        <p>Removed overgrown shrubs to open up the front view and simplify maintenance.</p>
-        <div class="before-after-pair">
-          <button class="lightbox-trigger" data-src="assets/placeholders/before-4.svg" data-alt="Before: Shrub removal placeholder">Before<img src="assets/placeholders/before-4.svg" alt="Before image slot placeholder for shrub removal" /></button>
-          <button class="lightbox-trigger" data-src="assets/placeholders/after-4.svg" data-alt="After: Shrub removal placeholder">After<img src="assets/placeholders/after-4.svg" alt="After image slot placeholder for shrub removal" /></button>
-        </div>
-      </article>
-
-      <article class="result-card" data-category="Stump Grinding">
-        <h2>Large Stump Removal</h2>
-        <p>Ground down a hazardous stump and leveled the area for safer mowing.</p>
-        <div class="before-after-pair">
-          <button class="lightbox-trigger" data-src="assets/placeholders/before-5.svg" data-alt="Before: Stump grinding placeholder">Before<img src="assets/placeholders/before-5.svg" alt="Before image slot placeholder for stump grinding" /></button>
-          <button class="lightbox-trigger" data-src="assets/placeholders/after-5.svg" data-alt="After: Stump grinding placeholder">After<img src="assets/placeholders/after-5.svg" alt="After image slot placeholder for stump grinding" /></button>
-        </div>
-      </article>
-    </section>
-
-    <section class="cta-banner compact">
-      <h2>Want results like this?</h2>
-      <p>Call or message today for a free estimate in Central Kentucky.</p>
-      <a class="btn btn-secondary" href="contact.html">Get Free Estimate</a>
+      </div>
     </section>
   </main>
 
-  <dialog id="lightbox" class="lightbox">
-    <button class="lightbox-close" aria-label="Close image">✕</button>
-    <img id="lightbox-image" src="" alt="Expanded gallery image" />
-  </dialog>
-
   <div id="site-footer"></div>
   <a href="tel:+16063021790" class="sticky-call">📞 Call (606) 302-1790</a>
+
   <script src="script.js"></script>
+  <script>
+    const observedProjects = document.querySelectorAll('.project-section');
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+
+      observedProjects.forEach((project) => observer.observe(project));
+    } else {
+      observedProjects.forEach((project) => project.classList.add('in-view'));
+    }
+  </script>
 </body>
 </html>
