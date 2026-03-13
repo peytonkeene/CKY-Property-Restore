@@ -9,6 +9,10 @@ const pages = [
 const current = window.location.pathname.split('/').pop() || 'index.html';
 const isHomePage = current === 'index.html';
 
+if (isHomePage) {
+  document.body.classList.add('is-home');
+}
+
 const navLinks = pages.map(([href, label]) => {
   const className = current === href ? 'active' : '';
 
@@ -56,7 +60,12 @@ const progressBar = document.querySelector('.scroll-progress');
 
 const setHeaderOffset = () => {
   if (!header) return;
+
+  const hadScrolledClass = header.classList.contains('is-scrolled');
+  if (hadScrolledClass) header.classList.remove('is-scrolled');
   const headerHeight = header.offsetHeight;
+  if (hadScrolledClass) header.classList.add('is-scrolled');
+
   root.style.setProperty('--header-offset', `${headerHeight}px`);
 };
 
@@ -86,6 +95,7 @@ if (menuToggle && nav) {
     const isOpen = nav.classList.toggle('open');
     menuToggle.setAttribute('aria-expanded', String(isOpen));
     header?.classList.toggle('menu-open', isOpen);
+    setHeaderOffset();
   });
 
   nav.querySelectorAll('a').forEach((link) => {
@@ -93,6 +103,7 @@ if (menuToggle && nav) {
       nav.classList.remove('open');
       menuToggle.setAttribute('aria-expanded', 'false');
       header?.classList.remove('menu-open');
+      setHeaderOffset();
     });
   });
 }

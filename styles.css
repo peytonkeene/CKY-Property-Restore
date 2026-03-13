@@ -30,6 +30,7 @@ a { color: inherit; }
 .skip-link:focus { left: 0; z-index: 1000; }
 
 .container { width: min(100% - 2rem, var(--max-width)); margin-inline: auto; }
+.is-home #main-content { padding-top: var(--header-offset); }
 .page-main { padding-block: calc(var(--header-offset) + 1.4rem) 4rem; }
 
 .site-header {
