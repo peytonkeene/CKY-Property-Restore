@@ -43,14 +43,6 @@
       border-radius: var(--radius);
       padding: 1.2rem;
       box-shadow: 0 5px 0 var(--yellow);
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.55s ease, transform 0.55s ease;
-    }
-
-    .project-section.in-view {
-      opacity: 1;
-      transform: translateY(0);
     }
 
     .project-section h2 {
@@ -96,6 +88,15 @@
       box-shadow: 0 8px 20px rgb(0 0 0 / 0.14);
       border: 1px solid #cfcfcf;
       background: var(--white);
+    }
+
+
+    .image-card-button {
+      width: 100%;
+      border: 1px solid #cfcfcf;
+      cursor: zoom-in;
+      padding: 0;
+      text-align: left;
     }
 
     .image-card img {
@@ -228,16 +229,16 @@
         <div class="before-after-layout">
           <figure class="transform-card">
             <span class="transform-label before">Before</span>
-            <div class="image-card">
+            <button class="image-card image-card-button lightbox-trigger" type="button" data-src="assets/placeholders/before-1.svg" data-alt="Before view of a property area with heavy junk buildup" aria-label="Open larger image: Before view of a property area with heavy junk buildup">
               <img src="assets/placeholders/before-1.svg" alt="Before view of a property area with heavy junk buildup" />
-            </div>
+            </button>
           </figure>
           <div class="ba-divider" aria-hidden="true">→</div>
           <figure class="transform-card">
             <span class="transform-label after">After</span>
-            <div class="image-card">
+            <button class="image-card image-card-button lightbox-trigger" type="button" data-src="assets/placeholders/after-1.svg" data-alt="After view showing a clean and usable outdoor property area" aria-label="Open larger image: After view showing a clean and usable outdoor property area">
               <img src="assets/placeholders/after-1.svg" alt="After view showing a clean and usable outdoor property area" />
-            </div>
+            </button>
           </figure>
         </div>
       </article>
@@ -248,16 +249,16 @@
         <div class="before-after-layout">
           <figure class="transform-card">
             <span class="transform-label before">Before</span>
-            <div class="image-card">
+            <button class="image-card image-card-button lightbox-trigger" type="button" data-src="assets/placeholders/before-3.svg" data-alt="Before view of an overgrown yard with brush and debris" aria-label="Open larger image: Before view of an overgrown yard with brush and debris">
               <img src="assets/placeholders/before-3.svg" alt="Before view of an overgrown yard with brush and debris" />
-            </div>
+            </button>
           </figure>
           <div class="ba-divider" aria-hidden="true">→</div>
           <figure class="transform-card">
             <span class="transform-label after">After</span>
-            <div class="image-card">
+            <button class="image-card image-card-button lightbox-trigger" type="button" data-src="assets/placeholders/after-3.svg" data-alt="After view showing a cleared and controlled yard" aria-label="Open larger image: After view showing a cleared and controlled yard">
               <img src="assets/placeholders/after-3.svg" alt="After view showing a cleared and controlled yard" />
-            </div>
+            </button>
           </figure>
         </div>
       </article>
@@ -268,16 +269,16 @@
         <div class="before-after-layout">
           <figure class="transform-card">
             <span class="transform-label before">Before</span>
-            <div class="image-card">
+            <button class="image-card image-card-button lightbox-trigger" type="button" data-src="assets/placeholders/before-2.svg" data-alt="Before view of an unwanted structure and surrounding debris" aria-label="Open larger image: Before view of an unwanted structure and surrounding debris">
               <img src="assets/placeholders/before-2.svg" alt="Before view of an unwanted structure and surrounding debris" />
-            </div>
+            </button>
           </figure>
           <div class="ba-divider" aria-hidden="true">→</div>
           <figure class="transform-card">
             <span class="transform-label after">After</span>
-            <div class="image-card">
+            <button class="image-card image-card-button lightbox-trigger" type="button" data-src="assets/placeholders/after-2.svg" data-alt="After view of open space after demolition and debris removal" aria-label="Open larger image: After view of open space after demolition and debris removal">
               <img src="assets/placeholders/after-2.svg" alt="After view of open space after demolition and debris removal" />
-            </div>
+            </button>
           </figure>
         </div>
       </article>
@@ -298,24 +299,12 @@
   <div id="site-footer"></div>
   <a href="tel:+16063021790" class="sticky-call">📞 Call (606) 302-1790</a>
 
+
+  <dialog id="lightbox" class="lightbox" aria-label="Expanded project image">
+    <button type="button" class="lightbox-close" aria-label="Close image">×</button>
+    <img id="lightbox-image" src="" alt="" />
+  </dialog>
+
   <script src="script.js"></script>
-  <script>
-    const observedProjects = document.querySelectorAll('.project-section');
-
-    if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-            obs.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.2 });
-
-      observedProjects.forEach((project) => observer.observe(project));
-    } else {
-      observedProjects.forEach((project) => project.classList.add('in-view'));
-    }
-  </script>
 </body>
 </html>
